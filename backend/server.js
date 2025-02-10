@@ -9,11 +9,7 @@ const cors = require('cors');
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors({
-    origin: "*", // Allow requests from any domain
-    methods: "GET,POST,PATCH,DELETE",
-    credentials: true
-}));
+app.use(cors());
 
 //middleware
 app.use(express.json())
@@ -35,5 +31,4 @@ mongoose.connect(process.env.MONGO_URI)
     app.listen(process.env.PORT, () => console.log('listening on port 4000 '));
 })
 .catch((error) => console.log(error));
-
 
