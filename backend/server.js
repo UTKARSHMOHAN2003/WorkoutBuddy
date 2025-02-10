@@ -11,7 +11,7 @@ const app = express();
 // Enable CORS for all routes
 app.use(cors(
     {
-        origin:["https://workout-buddy-up9b.vercel.app"],
+        origin:["https://workout-buddy-up9b.vercel.app/"],
         methods:["GET","POST","PATCH","DELETE"],
         credentials:true
         
