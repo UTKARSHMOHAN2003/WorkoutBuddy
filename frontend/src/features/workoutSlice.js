@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchWorkouts = createAsyncThunk(
     'workouts/fetchWorkouts',
     async () => {
-        const response = await fetch('https://workout-buddy-swart.vercel.app/');
+        const response = await fetch('http://localhost:4000/api/workouts');
         return await response.json();
     }
 );
@@ -13,7 +13,7 @@ export const fetchWorkouts = createAsyncThunk(
 export const addWorkout = createAsyncThunk(
     'workouts/addWorkout',
     async (workout) => {
-        const response = await fetch('https://workout-buddy-swart.vercel.app/', {
+        const response = await fetch('http://localhost:4000/api/workouts', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: { 'Content-Type': 'application/json' }
@@ -29,7 +29,7 @@ export const addWorkout = createAsyncThunk(
 export const deleteWorkout = createAsyncThunk(
     'workouts/deleteWorkout',
     async (id) => {
-        const response = await fetch(`https://workout-buddy-swart.vercel.app/${id}`, {
+        const response = await fetch(`http://localhost:4000/api/workouts/${id}`, {
             method: 'DELETE',
         });
         if (!response.ok) {
@@ -43,7 +43,7 @@ export const deleteWorkout = createAsyncThunk(
 export const updateWorkoutTitle = createAsyncThunk(
     'workouts/updateWorkoutTitle',
     async ({ id, newTitle }) => {
-        const response = await fetch(`https://workout-buddy-swart.vercel.app/${id}`, {
+        const response = await fetch(`http://localhost:4000/api/workouts/${id}`, {
             method: 'PATCH',
             body: JSON.stringify({ title: newTitle }),
             headers: { 'Content-Type': 'application/json' }
