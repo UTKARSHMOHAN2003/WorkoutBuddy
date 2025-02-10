@@ -9,7 +9,11 @@ const cors = require('cors');
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({
+    origin: "*", // Allow requests from any domain
+    methods: "GET,POST,PATCH,DELETE",
+    credentials: true
+}));
 
 //middleware
 app.use(express.json())
